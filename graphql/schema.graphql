@@ -1,0 +1,28 @@
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+"Indicates what fields are available at the top level of a query operation."
+type Query {
+metrics: Metrics!
+}
+type Metrics {
+hostname: String!
+os: String!
+php: String!
+disk: Disk!
+memory: Memory
+cpu_pct: Float
+uptime_s: Int
+cpu_temp_c: Float
+at: String!
+}
+type Disk {
+total_gb: Float!
+free_gb: Float!
+used_pct: Float!
+}
+type Memory {
+total_mb: Int!
+available_mb: Int!
+used_pct: Float!
+}
